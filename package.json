@@ -1,0 +1,95 @@
+{
+  "name": "narutinho-wallpaper",
+  "displayName": "narutinho-wallpaper",
+  "description": "A simple tool to make your vscode's background look better!",
+  "version": "1.0.0",
+  "publisher": "Diego Telles",
+  "author": "Diego Telles",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegotelles/narutinho-wallpaper.git"
+  },
+  "engines": {
+    "vscode": "^1.17.0"
+  },
+  "icon": "vscode-background-logo.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.background.info",
+        "title": "Background - Info"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Plugin background config. narutinho-wallpaper",
+      "properties": {
+        "background.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Plugin background enabled.background"
+        },
+        "background.useFront": {
+          "type": "boolean",
+          "default": true,
+          "description": "If use front image,which means image is placed on the top of your code"
+        },
+        "background.style": {
+          "type": "object",
+          "default": {
+            "content": "''",
+            "pointer-events": "none",
+            "position": "absolute",
+            "z-index": "99999",
+            "width": "100%",
+            "height": "100%",
+            "background-position": "100% 100%",
+            "background-repeat": "no-repeat",
+            "opacity": 1
+          },
+          "description": "Custom common style."
+        },
+        "background.styles": {
+          "type": "array",
+          "default": [
+            {},
+            {},
+            {}
+          ],
+          "description": "Each style of backgrounds."
+        },
+        "background.useDefault": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use default images."
+        },
+        "background.customImages": {
+          "type": "array",
+          "default": [],
+          "description": "Your custom Images(Max length is 3)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.3",
+    "vscode": "^1.1.5",
+    "@types/node": "^7.0.43",
+    "@types/mocha": "^2.2.42"
+  }
+}
